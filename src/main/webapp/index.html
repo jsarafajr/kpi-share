@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="RootApp">
 <head lang="en">
   <meta charset="UTF-8">
-  <title></title>
+  <base href="/">
+
+  <title>KPI Share</title>
+
+
 </head>
 <body>
-  Hello
+
+<ng-view></ng-view>
+
+<!-- Angular Dependencies -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+
+<!-- Angular app configures -->
+<script src="scripts/app.js"></script>
+<script src="scripts/routers.js"></script>
+
+<!-- Controllers -->
+<script src="scripts/controllers/home.controller.js"></script>
+
 </body>
 </html>
