@@ -16,3 +16,5 @@ dump.sql.mwb.bak
 logs/
 
 output/
+
+**/bower_components

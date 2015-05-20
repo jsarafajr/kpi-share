@@ -1,0 +1,9 @@
+{
+  "name": "KPI Share",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jsarafajr/kpi-share",
+  "dependencies": {
+    "angular": "~1.3.15",
+    "bootstrap": "~3.3.4"
+  }
+}
