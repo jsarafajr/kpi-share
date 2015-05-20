@@ -1,0 +1,18 @@
+# intellij
+*.iml
+*.ipr
+*.iws
+*.directory
+.idea/
+
+#maven
+/target
+
+# MySQL
+dump.sql.mwb
+dump.sql.mwb.bak
+
+#logs
+logs/
+
+output/
