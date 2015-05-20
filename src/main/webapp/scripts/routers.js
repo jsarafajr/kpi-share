@@ -10,6 +10,9 @@ function RoutersConfig($routeProvider, $locationProvider) {
         .when("/", {
             templateUrl: "views/home.html",
             controller: HomeController
+        })
+        .when("/list", {
+            templateUrl: "views/task.html"
         });
 
 }
