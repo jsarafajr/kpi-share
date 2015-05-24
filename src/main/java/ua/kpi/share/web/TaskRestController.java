@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import ua.kpi.share.domain.Task;
 import ua.kpi.share.domain.User;
 import ua.kpi.share.dto.TaskDto;
+import ua.kpi.share.service.EmailService;
 import ua.kpi.share.service.TaskService;
 import ua.kpi.share.service.UserService;
 
@@ -28,6 +29,9 @@ public class TaskRestController {
     @Autowired
     private TaskService taskService;
 
+    @Autowired
+    private EmailService emailService;
+
     @RequestMapping(value = "task", method = RequestMethod.POST)
     @ResponseBody
     public void addTask(@RequestBody TaskDto taskDto) {
@@ -45,7 +49,22 @@ public class TaskRestController {
     @RequestMapping(value = "task/apply", method = RequestMethod.POST)
     @ResponseBody
     public void applyTask(@RequestParam("id") int taskId) {
-        // todo
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        String username = auth.getName();
+        User userClient = userService.getByEmail(username);
+
+        Task clickedTask = taskService.getById(taskId);
+        final User addresseeUser = clickedTask.getUser();
+        List<String> emailsToSend = new ArrayList<String>() {{
+            add(addresseeUser.getEmail());
+        }};
+        emailService.sendText((String[])emailsToSend.toArray(), "KPI-share, Task request",
+                "Yo, " + addresseeUser.getName() + "!\n" +
+                "You've got a request for your task " + clickedTask.getTitle() + ".\n" +
+                "To remind you, here is the task description : " + clickedTask.getDescription() +
+                "\nPlease contact " + userClient.getName() + " Via email : " + userClient.getEmail() +
+                " Or contact by phone : " + userClient.getPhone() +
+                ".\n Thank you being with us!");
     }
 
     @RequestMapping("task/list")
