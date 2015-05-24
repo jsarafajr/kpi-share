@@ -17,6 +17,10 @@ function RoutersConfig($routeProvider, $locationProvider) {
         })
         .when("/list", {
             templateUrl: "views/task.html"
+        })
+        .when("/new-task", {
+            templateUrl: "views/task.html",
+            controller: TaskController
         });
 
 }

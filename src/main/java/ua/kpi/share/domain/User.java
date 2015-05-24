@@ -18,18 +18,22 @@ public class User {
     private String password;
     private List<Task> tasks;
 
-    private User(String email, String phone, String name) {
+    public User() {}
+
+    private User(String email, String password, String phone, String name) {
         this.email = email;
         this.phone = phone;
         this.name = name;
+        this.password = password;
     }
 
-    public static User newUser(String email, String phone, String name) {
-        return new User(email, phone, name);
+    public static User newUser(String email, String password, String phone, String name) {
+        return new User(email, password, phone, name);
     }
 
     public static User valueOf(UserDto userDto) {
-        return new User(userDto.getEmail(), userDto.getPhone(), userDto.getName());
+        return new User(userDto.getEmail(), userDto.getPassword(),
+                userDto.getPhone(), userDto.getName());
     }
 
     @Id

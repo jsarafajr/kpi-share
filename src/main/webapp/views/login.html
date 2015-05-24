@@ -37,13 +37,16 @@
               <!-- Sign Up form-->
               <form ng-show="tab == 'register'">
                 <div class="form-group">
-                  <input type="text" tabindex="1" class="form-control" placeholder="Имя пользователя" value="">
+                  <input type="text" tabindex="1" class="form-control" placeholder="Имя пользователя"
+                         ng-model="newUser.name">
                 </div>
                 <div class="form-group">
-                  <input type="email" tabindex="1" class="form-control" placeholder="Email" value="">
+                  <input type="email" tabindex="1" class="form-control" placeholder="Email"
+                         ng-model="newUser.email">
                 </div>
                 <div class="form-group">
-                  <input type="password" tabindex="2" class="form-control" placeholder="Пароль">
+                  <input type="password" tabindex="2" class="form-control" placeholder="Пароль"
+                         ng-model="newUser.password">
                 </div>
                 <div class="form-group">
                   <input type="password" tabindex="2" class="form-control" placeholder="Повторите пароль">
@@ -51,7 +54,8 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
-                      <input type="submit" tabindex="4" class="form-control btn btn-register" value="Зарегистрироваться">
+                      <input type="submit" tabindex="4" class="form-control btn btn-register" value="Зарегистрироваться"
+                             ng-click="register()">
                     </div>
                   </div>
                 </div>

@@ -24,7 +24,8 @@ public class Application extends SpringBootServletInitializer {
         @RequestMapping({
                 "/",
                 "/list",
-                "/login"
+                "/login",
+                "/new-task"
         })
         public String index() {
             return "forward:/index.html";

@@ -1,8 +1,10 @@
 package ua.kpi.share.domain;
 
+import ua.kpi.share.dto.TaskDto;
+
 import javax.persistence.*;
 import javax.persistence.Table;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -12,10 +14,21 @@ import java.util.List;
 @Table(name = "Task")
 public class Task {
     private int id;
-    private String header;
+    private String title;
+    private String subject;
+    private String description;
     private List<Attachment> attachments;
     private User user;
     private Timestamp date;
+
+    public static Task valueOf(TaskDto taskDto) {
+        Task task = new Task();
+        task.title = taskDto.getTitle();
+        task.subject = taskDto.getSubject();
+        task.description = taskDto.getDescription();
+
+        return task;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,14 +42,14 @@ public class Task {
     }
 
     @Basic
-    @Column(name = "header")
-    public String getHeader() {
-        return header;
+    @Column(name = "title")
+    public String getTitle() {
+        return title;
     }
 
 
-    public void setHeader(String header) {
-        this.header = header;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
 
@@ -67,5 +80,25 @@ public class Task {
 
     public void setAttachments(List<Attachment> attachments) {
         this.attachments = attachments;
+    }
+
+    @Basic
+    @Column(name = "description")
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Basic
+    @Column(name = "subject")
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }

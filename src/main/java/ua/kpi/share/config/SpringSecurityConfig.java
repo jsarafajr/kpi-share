@@ -21,6 +21,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(
+                        "/api/user/register",
                         "/bower_components/**",
                         "/scripts/**",
                         "/views/**",
@@ -39,5 +40,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth, UserService userService) throws Exception {
         auth.userDetailsService(userService);
+        auth.inMemoryAuthentication().withUser("admin").password("admin").roles("USER");
     }
 }

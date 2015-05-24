@@ -11,6 +11,7 @@ import ua.kpi.share.repository.UserRepository;
 import ua.kpi.share.service.UserService;
 
 import java.util.HashSet;
+import java.util.List;
 
 /**
  * Created by oleh on 23.05.2015.
@@ -34,6 +35,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getByEmail(String email) {
         return userRepository.findByEmail(email);
+    }
+
+    @Override
+    public List<User> getAll() {
+        return userRepository.findAll();
     }
 
     @Override

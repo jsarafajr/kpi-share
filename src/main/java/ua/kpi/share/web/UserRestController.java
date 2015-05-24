@@ -7,33 +7,36 @@ import ua.kpi.share.domain.User;
 import ua.kpi.share.dto.UserDto;
 import ua.kpi.share.service.UserService;
 
-import javax.websocket.server.PathParam;
+import java.util.List;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 /**
  * Created by Evgeniy Baranuk on 24.05.15.
  */
-@Controller
+@RestController
 @RequestMapping("/api")
 public class UserRestController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/user", method = POST)
+    @RequestMapping(value = "user/register", method = POST)
     public void registerUser(@RequestBody UserDto userDto) {
         userService.signUp(User.valueOf(userDto));
     }
 
-    @RequestMapping(value = "/user", method = GET, params = {"id"})
-    public void getUser(@RequestParam int id) {
-        userService.getById(id);
+    @RequestMapping(value = "user", method = GET, params = {"id"})
+    public User getUser(@RequestParam int id) {
+        return userService.getById(id);
     }
 
-    @RequestMapping(value = "/user", method = GET, params = {"email"})
-    public void getUser(@RequestParam String email) {
-        userService.getByEmail(email);
+    @RequestMapping(value = "user", method = GET, params = {"email"})
+    public User getUser(@RequestParam String email) {
+        return userService.getByEmail(email);
     }
 
-
+    @RequestMapping(value = "/user/list")
+    public List<User> list() {
+        return userService.getAll();
+    }
 }

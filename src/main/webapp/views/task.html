@@ -1,8 +1,30 @@
 <div ng-include="'views/header.html'"></div>
-<div class="col-md-2 well">
-  hi
-</div>
 
-<div class="col-md-9 col-md-offset-1 well">
-  hello
-</div>
+<form class="col-md-6 col-md-offset-3">
+  <h4>Добавить задание</h4>
+  <div class="form-group">
+    <input type="text" tabindex="1" class="form-control" placeholder="Название"
+           ng-model="task.title">
+  </div>
+  <div class="form-group">
+    <input type="text" tabindex="1" class="form-control" placeholder="Предмет"
+           ng-model="task.subject">
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" placeholder="Описание"
+              ng-model="task.description"></textarea>
+  </div>
+  <h5>Прикрепления</h5>
+  <div class="row">
+    <div class="drop-box">Drop files here</div>
+  </div>
+  <br>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <input type="submit" tabindex="4" class="form-control btn btn-register" value="Добавить"
+               ng-click="createTask()">
+      </div>
+    </div>
+  </div>
+</form>
