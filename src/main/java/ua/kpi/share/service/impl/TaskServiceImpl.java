@@ -61,6 +61,6 @@ public class TaskServiceImpl implements TaskService{
         if(task == null) return;
 
         HTMLDocument htmlDocument = htmLmessageBuilder.applyMessage(applier, taskApply,task);
-        emailService.send(task.getUser().getEmail(), htmlDocument);
+        //emailService.send(task.getUser().getEmail(), htmlDocument);
     }
 }
