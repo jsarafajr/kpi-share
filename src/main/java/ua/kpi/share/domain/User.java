@@ -15,6 +15,7 @@ public class User {
     private String email;
     private String phone;
     private String name;
+    private String password;
     private List<Task> tasks;
 
     private User(String email, String phone, String name) {
@@ -70,6 +71,16 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Basic
+    @Column(name = "password")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @OneToMany()
