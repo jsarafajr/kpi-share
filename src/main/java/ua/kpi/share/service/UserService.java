@@ -7,7 +7,7 @@ import ua.kpi.share.domain.User;
  */
 public interface UserService {
 
-    void signUp(User user);
+    User signUp(User user);
 
     User getById(int id);
 

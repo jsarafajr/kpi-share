@@ -1,4 +1,4 @@
-package ua.kpi.share.conteoller;
+package ua.kpi.share.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,11 +15,20 @@ import ua.kpi.share.service.UserService;
 public class HelloController {
     @Autowired
     UserService userService;
+
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     @ResponseBody
-    public User getUser(){
+    public User getUser() {
+
+        User newUser = User.newUser("test1", "228", "lol");
+
+        userService.signUp(newUser);
+
+        System.out.println("here");
+
         return userService.getById(1);
     }
+
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     @ResponseBody
     public String getHello(){

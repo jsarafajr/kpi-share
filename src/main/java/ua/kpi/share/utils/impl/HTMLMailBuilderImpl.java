@@ -12,7 +12,7 @@ import javax.swing.text.html.HTMLDocument;
  * Created by oleh on 24.05.2015.
  */
 @Component
-public class HTMLMessageBuilderImpl implements HTMLMessageBuilder {
+public class HTMLMailBuilderImpl implements HTMLMessageBuilder {
 
     @Override
     public HTMLDocument applyMessage(User user, TaskApply taskApply, Task task) {

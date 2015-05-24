@@ -15,6 +15,15 @@ public class User {
     private String name;
     private List<Task> tasks;
 
+    public static User newUser(String email, String phone, String name) {
+        User user = new User();
+        user.setEmail(email);
+        user.setPhone(phone);
+        user.setName(name);
+
+        return user;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
