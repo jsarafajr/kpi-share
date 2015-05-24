@@ -16,19 +16,6 @@ public class HelloController {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/user", method = RequestMethod.GET)
-    @ResponseBody
-    public User getUser() {
-
-        User newUser = User.newUser("test1", "228", "lol");
-
-        userService.signUp(newUser);
-
-        System.out.println("here");
-
-        return userService.getById(1);
-    }
-
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     @ResponseBody
     public String getHello(){

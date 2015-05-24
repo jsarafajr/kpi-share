@@ -7,12 +7,12 @@
   <title>KPI Share</title>
 
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
 <div class="container">
-  <div ng-include="'views/header.html'"></div>
   <ng-view></ng-view>
 </div>
 
@@ -26,6 +26,10 @@
 
 <!-- Controllers -->
 <script src="scripts/controllers/home.controller.js"></script>
+<script src="scripts/controllers/login.controller.js"></script>
+
+<!-- Services -->
+<script src="scripts/services/user.service.js"></script>
 
 </body>
 </html>

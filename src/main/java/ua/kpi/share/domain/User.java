@@ -1,5 +1,7 @@
 package ua.kpi.share.domain;
 
+import ua.kpi.share.dto.UserDto;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,13 +17,18 @@ public class User {
     private String name;
     private List<Task> tasks;
 
-    public static User newUser(String email, String phone, String name) {
-        User user = new User();
-        user.setEmail(email);
-        user.setPhone(phone);
-        user.setName(name);
+    private User(String email, String phone, String name) {
+        this.email = email;
+        this.phone = phone;
+        this.name = name;
+    }
 
-        return user;
+    public static User newUser(String email, String phone, String name) {
+        return new User(email, phone, name);
+    }
+
+    public static User valueOf(UserDto userDto) {
+        return new User(userDto.getEmail(), userDto.getPhone(), userDto.getName());
     }
 
     @Id

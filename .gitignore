@@ -8,12 +8,9 @@
 #maven
 /target
 
-# MySQL
-dump.sql.mwb
-dump.sql.mwb.bak
-
 #logs
 logs/
+*.log
 
 output/
 

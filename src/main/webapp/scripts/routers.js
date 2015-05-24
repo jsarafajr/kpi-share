@@ -11,6 +11,10 @@ function RoutersConfig($routeProvider, $locationProvider) {
             templateUrl: "views/home.html",
             controller: HomeController
         })
+        .when("/login", {
+            templateUrl: "views/login.html",
+            controller: LoginController
+        })
         .when("/list", {
             templateUrl: "views/task.html"
         });
