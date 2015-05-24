@@ -16,7 +16,8 @@ function RoutersConfig($routeProvider, $locationProvider) {
             controller: LoginController
         })
         .when("/list", {
-            templateUrl: "views/task.html"
+            templateUrl: "views/list.html",
+            controller: TaskController
         })
         .when("/new-task", {
             templateUrl: "views/task.html",
