@@ -18,3 +18,9 @@ logs/
 output/
 
 **/bower_components
+
+.packages
+.pub/
+build/
+packages
+pubspec.lock
